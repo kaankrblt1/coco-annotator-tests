@@ -52,7 +52,6 @@ describe('Coco annotator register page tests', function () {
         await delay(150);
         await driver.findElement(By.xpath("//button[contains(text(),'Register')]")).click(); 
         await driver.wait(until.urlIs("http://localhost:5000/#/auth"));
-          //console.log(await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]")).getText());
     });
 
     it('Should be nothing and not register when only filled full name', async function() {
@@ -138,7 +137,9 @@ describe('Coco annotator register page tests', function () {
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/input[1]")).sendKeys("ü");
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]"));
-        //console.log(await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]")).getText());
+        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]")).getText().then(textValue => {
+            assert.strictEqual('Invalid username format', textValue);
+        });
         await driver.findElement(By.xpath("//div[contains(text(),'Minimum length of 5 characters.')]"));
     });
 

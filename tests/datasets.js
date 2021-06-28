@@ -24,7 +24,7 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();  
     });
 
-    it('Should create a dataset when filled valid values', async function() {
+    it('Should be created a dataset when filled valid values', async function() {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")).click();   
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("test"+timestamp);
@@ -33,7 +33,7 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[3]/button[2]")).click();
     });
 
-    it('Should create a dataset when without categories', async function() {
+    it('Should be created a dataset when without categories', async function() {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")).click();   
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("test1"+timestamp);
@@ -64,7 +64,7 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[3]/button[2]")).click(); 
     });
 
-    it('Should delete last dataset', async function() {
+    it('Should be deleted last dataset', async function() {
         await delay(200);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()]/div[1]/div[1]/i[1]")).click(); 
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()]/div[1]/div[1]/div[2]/button[4]")).click();

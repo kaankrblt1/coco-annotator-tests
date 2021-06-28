@@ -1,8 +1,6 @@
 const assert = require('assert');
 const {Builder, Key, By, until} = require('selenium-webdriver');
 const delay = require('delay');
-const { doesNotMatch } = require('assert');
-
 
 describe('Coco annotator login page tests', function () {
     let driver;
@@ -46,8 +44,9 @@ describe('Coco annotator login page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]")).sendKeys("test123");
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/input[1]")).sendKeys("test1234");
         await driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();   
-        await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]"));   
-        //error message should be add
+        await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]")).getText().then(textValue => {
+            assert.strictEqual('User Login\nCould not authenticate user', textValue);
+        });
     });
 
     it('Should redirect to github page when click github link', async function(){

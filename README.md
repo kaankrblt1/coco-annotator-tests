@@ -130,7 +130,7 @@ Thanks to all these wonderful libaries/frameworks:
 
 - [Selenium](https://www.npmjs.com/package/selenium-webdriver) - Selenium is a browser automation library
 
-Usage
+Installing
 ```bash
 $ yarn init
 ```
@@ -144,7 +144,6 @@ $ yarn add mocha
 $ yarn add delay  
 ```
 Run command
-
 ```bash
 $ yarn mocha tests/*.js --timeout 9000
 ```

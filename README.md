@@ -126,6 +126,38 @@ Thanks to all these wonderful libaries/frameworks:
 - [PaperJS](http://paperjs.org/) - HTML canvas vector graphics library
 - [Bootstrap](https://getbootstrap.com/) - Frontend component library
 
+### Tests
+
+- [Selenium](https://www.npmjs.com/package/selenium-webdriver) - Selenium is a browser automation library
+
+Usage
+```bash
+$ yarn init
+```
+```bash
+$ yarn add selenium-webdriver
+```
+```bash
+$ yarn add mocha 
+```
+```bash
+$ yarn add delay  
+```
+Run command
+
+```bash
+$ yarn mocha tests/*.js --timeout 9000
+```
+Notes
+
+In order to pass the tests at the first boot,
+The following account may be required to be registered to the system as admin.
+
+| Test Account           |
+| ---------------------- |
+| **Username:** test123  |
+| **Password:** test213  |
+
 # License
 
 [MIT](https://tldrlegal.com/license/mit-license)

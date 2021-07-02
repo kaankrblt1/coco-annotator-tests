@@ -24,7 +24,8 @@ describe('Coco annotator login page tests', function () {
     });
     
     it('Should be nothing when the fields are not filled', async function() {
-        await driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();       
+        await delay(200);     
+        await driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();  
         await driver.wait(until.urlIs("http://localhost:5000/#/auth"));
     });
 

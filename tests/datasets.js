@@ -56,7 +56,7 @@ describe('Coco annotator datasets page tests', function () {
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("test");
         await driver.findElement(By.xpath("//button[contains(text(),'Create Dataset')]")).click(); 
-        await delay(150);
+        await delay(300);
         await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]")).getText().then(textValue => {
             assert.strictEqual('Creating Dataset\nDataset already exists. Check the undo tab to fully delete the dataset.', textValue);
         });
@@ -78,7 +78,7 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[2]/div[1]/div[1]/div[3]/button[1]")).click();
     });
     
-    it.skip('Should be edited only category of dataset', async function() {
+    it('Should be edited only category of dataset', async function() {
         //This a flaky test.
         await delay(200);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")).click();   
@@ -87,8 +87,8 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[1]")).sendKeys("testforEdit"+timestamp+Key.RETURN);
         await driver.findElement(By.xpath("//button[contains(text(),'Create Dataset')]")).click();   
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[3]/button[2]")).click();
+        await delay(400);
 
-        await delay(200);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-2]/div[1]/div[1]/i[1]")).click(); 
         await delay(300);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-2]/div[1]/div[1]/div[2]/button[1]")).click(); 
@@ -99,11 +99,12 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-2]/div[1]/div[1]/div[1]/span[last()]")).getText().then(textValue => {
             assert.strictEqual('testCategory'+timestamp, textValue);
         }); 
-
-        await delay(500);
+ 
+        await delay(400);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-2]/div[1]/div[1]/i[1]")).click(); 
+        await delay(400);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-2]/div[1]/div[1]/div[2]/button[4]")).click();
-        await delay(200);
+        await delay(200); 
     });
 
     it.skip('Should be edited only key and value of dataset', async function() {
@@ -115,25 +116,27 @@ describe('Coco annotator datasets page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[1]")).sendKeys("testforEdit1"+timestamp+Key.RETURN);
         await driver.findElement(By.xpath("//button[contains(text(),'Create Dataset')]")).click();   
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[3]/button[2]")).click();
-
-        await delay(200);
-        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/i[1]")).click(); 
+        await delay(300); 
+        
+        await driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/i[1]")).click(); 
         await delay(300);
-        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/div[2]/button[1]")).click(); 
+        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/div[2]/button[1]")).click();
         await delay(300);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[2]/i[1]")).click();
+        await delay(300);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[2]/ul[1]/li[last()]/div[1]/div[1]/input[1]")).sendKeys("testKey"+timestamp);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[2]/ul[1]/li[last()]/div[1]/div[2]/input[1]")).sendKeys("testValue"+timestamp);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[2]/div[1]/div[1]/div[3]/button[1]")).click();
+        await delay(400);
 
-        
-        await delay(500);
-        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/i[1]")).click(); 
+        await driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/i[1]")).click(); 
+        await delay(400); 
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[2]/div[last()-1]/div[1]/div[1]/div[2]/button[4]")).click();
-        await delay(200); 
+        await delay(200);
     });
 
-    it('Should be edited all values of dataset', async function() {
+    it.skip('Should be edited all values of dataset', async function() {
+        //This a flaky test.
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")).click();   
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("testforEdit2"+timestamp);

@@ -156,8 +156,10 @@ describe('Coco annotator register page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/input[1]")).sendKeys("test123");
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[3]/input[1]")).sendKeys("test123");
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/form[1]/div[4]/input[1]")).sendKeys("test123");
-        await driver.findElement(By.xpath("//button[contains(text(),'Register')]")).click(); 
-        await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]"));   
+        await driver.findElement(By.xpath("//button[contains(text(),'Register')]")).click();
+        await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]")).getText().then(textValue => {
+            assert.strictEqual('User Registration\nUsername already exists.', textValue);
+        }); 
     });
 
     after(() => driver && driver.quit());

@@ -29,7 +29,7 @@ describe('Coco annotator categories page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")).click();   
         await delay(150);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("testCategory"+timestamp);
-        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")).sendKeys("superCategory"+timestamp);
+        await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[2]/input[1]")).sendKeys("superCategory"+timestamp);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/i[1]")).click(); 
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/form[1]/ul[1]/li[last()]/div[1]/div[1]/input[1]")).sendKeys("testLabel"+timestamp);
         await driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/form[1]/ul[1]/li[last()]/div[1]/div[3]/div[1]/div[1]/input[1]")).sendKeys("testConnect"+timestamp);
@@ -83,7 +83,6 @@ describe('Coco annotator categories page tests', function () {
         await driver.findElement(By.xpath("//body/div[@id='toast-container']/div[1]")).getText().then(textValue => {
             assert.strictEqual('Updating Category\nCategory successfully updated', textValue);
         });       
-        //await delay(300); 
     });
     
     it.skip('Should be edited a category when only filled categoryName and keyPoints', async function() {
